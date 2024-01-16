@@ -1,0 +1,14 @@
+{
+  "eslint.lintTask.enable": true,
+  "eslint.lintTask.options": ". --cache --cache-location .cache/eslint",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.preferences.useAliasesForRenames": false,
+  "javascript.preferences.useAliasesForRenames": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeLens": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true
+}
