@@ -1,3 +1,4 @@
+import { FilterIcon } from "./Filter.icon";
 import { Table } from "./Table.layout";
 
 export default {
@@ -9,7 +10,9 @@ const Template = () => {
   return (
     <Table>
       <Table.Header>
-        <Table.Cell>Hotel name</Table.Cell>
+        <Table.Cell>
+          Hotel name <FilterIcon onClick={() => {}} />
+        </Table.Cell>
         <Table.Cell>Rooms</Table.Cell>
         <Table.Cell>Occ</Table.Cell>
       </Table.Header>
