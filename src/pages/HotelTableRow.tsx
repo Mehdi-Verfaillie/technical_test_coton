@@ -20,6 +20,7 @@ export const HotelTableRow = ({ hotel }: TableRowComponentProps) => {
 
   return (
     <Table.Row>
+      <Table.Cell>{hotel.index}</Table.Cell>
       <Table.Cell>{renderCell(hotel.hotelName)}</Table.Cell>
       <Table.Cell>{renderCell(formatNumber(hotel.rooms))}</Table.Cell>
       <Table.Cell>{renderCell(formatPercentage(hotel.occ))}</Table.Cell>

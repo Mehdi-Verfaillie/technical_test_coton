@@ -36,6 +36,7 @@ export const HotelTableHeader = ({
   sortDirection,
 }: HotelTableHeaderProps) => (
   <Table.Header>
+    <Table.Cell>Index</Table.Cell>
     {columns.map((column) => (
       <SortableHeaderCell
         key={column.sortKey}

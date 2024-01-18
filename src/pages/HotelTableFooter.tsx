@@ -30,10 +30,11 @@ export const HotelTableFooter = ({
 
   return (
     <Table.Row>
+      <Table.Cell>Averages --&gt;</Table.Cell>
       {columns.map((column) => (
         <Table.Cell key={column.sortKey}>
           {column.sortKey === "hotelName" ? (
-            <div>Averages</div>
+            <Table.Cell />
           ) : (
             renderCell(
               averageMetrics[column.sortKey],

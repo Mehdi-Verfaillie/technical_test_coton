@@ -15,12 +15,14 @@ export type HotelSummaryMetrics = Pick<
 > & {
   hotelName: HotelPerformanceMetrics["hotel_reference"]["display_name"];
   rooms: HotelPerformanceMetrics["hotel_reference"]["rooms"];
+  index: number;
 };
 
 export const normalizeHotelPerformanceMetrics = (
   metrics: HotelPerformanceMetrics[],
 ): HotelSummaryMetrics[] => {
-  return metrics.map((metric) => ({
+  return metrics.map((metric, index) => ({
+    index,
     occ: metric.occ,
     adr: metric.adr,
     revpar: metric.revpar,
