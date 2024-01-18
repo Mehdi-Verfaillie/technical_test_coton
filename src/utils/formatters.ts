@@ -8,3 +8,26 @@ export const formatCurrency = (amount: number): string =>
 
 export const formatPercentage = (percentage: number): string =>
   `${formatNumber(percentage * 100)}%`;
+
+export const calculateAverage = <T extends Record<string, any>>(
+  data: T[],
+  key: keyof T,
+): string => {
+  if (!Array.isArray(data) || data.length === 0) {
+    return "0.00";
+  }
+
+  let total = 0;
+  let count = 0;
+
+  data.forEach((item) => {
+    const value = item[key];
+    if (typeof value === "number" && !isNaN(value)) {
+      total += value;
+      count += 1;
+    }
+  });
+
+  const average = count > 0 ? total / count : 0;
+  return average.toFixed(2);
+};
