@@ -1,11 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
+import { HotelStoreProvider, useHotelStore } from "./api/hotel.provider";
+import { HotelTable } from "./HotelTable";
+import { Suspense } from "react";
+import { ErrorBoundary } from "@/utils/ErrorBondary";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const hotelStore = useHotelStore();
+
   return (
     <>
       <Head>
@@ -26,7 +32,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -39,16 +45,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
+        <HotelStoreProvider store={hotelStore}>
+          <ErrorBoundary>
+            <Suspense fallback={<div>Loading hotels...</div>}>
+              <HotelTable />
+            </Suspense>
+          </ErrorBoundary>
+        </HotelStoreProvider>
 
         <div className={styles.grid}>
           <a
@@ -110,5 +113,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
